@@ -35,7 +35,7 @@ from prado import parse_prado_query, get_prado_url
 logger = logging.getLogger("ComplianceService")
 router = APIRouter()
 
-DATASET_FILE = r"Open_sanctions_target_nested_json_dataset"
+DATASET_FILE = r"targets.nested.json"
 
 # Load dataset once at startup
 try:

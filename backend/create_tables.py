@@ -6,6 +6,7 @@
 # create_tables.py
 # Run this script to ensure both tables are properly created in the database
 
+from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy import create_engine
 from db_models import Base, LogEntry, CustomerRegistration
 from config import DATABASE_URL
@@ -25,7 +26,7 @@ def create_tables():
         Base.metadata.create_all(engine)
         
         # Verify tables
-        inspector = engine.dialect.inspector
+        inspector = Inspector.from_engine(engine)
         tables = inspector.get_table_names()
         logger.info(f"Tables in database: {tables}")
         

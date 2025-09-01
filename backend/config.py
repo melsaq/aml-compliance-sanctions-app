@@ -7,10 +7,12 @@ import os
 import urllib.parse
 
 # Database configuration with placeholder values
-POSTGRES_USER = os.getenv("POSTGRES_USER", "your_postgres_username")
+POSTGRES_USER = "postgres"
+os.getenv("POSTGRES_USER")
 
 # Get password from environment or prompt user
-raw_password = os.getenv("POSTGRES_PASSWORD")
+raw_password = "thebig2025"
+# os.getenv("POSTGRES_PASSWORD")
 if raw_password is None:
     raw_password = input("Enter your PostgreSQL password (leave blank for default): ")
     if raw_password == "":
@@ -18,7 +20,7 @@ if raw_password is None:
 
 # URL encode the password to safely handle special characters
 POSTGRES_PASSWORD = urllib.parse.quote_plus(raw_password)
-POSTGRES_DB = os.getenv("POSTGRES_DB", "compliance_logs")
+POSTGRES_DB = os.getenv("POSTGRES_DB", "kyc_demo")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")  # Standard PostgreSQL port
 
